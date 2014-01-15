@@ -11,9 +11,9 @@ Depends: R (>= 1.8.0), ade4, fpc, clusterSim
 
 Date: 2011-07-12
 
-Author: Julien Tap
+Author: Julien Tap, Daniel R. Mende
 
-Maintainer: Julien Tap <jtap@jouy.inra.fr>
+Maintainer: Julien Tap <jtap@jouy.inra.fr>, Daniel R. Mende <mende@embl.de>
 
 Description: This package provide numerous functions for biotyping your community dataset based on clustering and classification techniques.
 
