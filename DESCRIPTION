@@ -4,8 +4,8 @@ Title: BiotypeR: an R package to biotype a community
 Version: 0.1
 Depends: R (>= 1.8.0), ade4, fpc, clusterSim
 Date: 2011-07-12
-Author: Julien Tap
-Maintainer: Julien Tap <jtap@jouy.inra.fr>
+Author: Julien Tap, Daniel R. Mende
+Maintainer: Julien Tap <jtap@jouy.inra.fr>, Daniel R. Mende <mende@embl.de>
 Description: This package provide numerous functions for biotyping your community dataset based on clustering and classification techniques.
 License: GPL 2
 LazyLoad: yes
