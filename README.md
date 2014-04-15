@@ -22,4 +22,4 @@ License: GPL 2
 LazyLoad: yes
 
 short story : package developped for the enterotype paper (Arumugam et al., Nature, 2010) at EMBL.
-I am still develloping it at INRA MetaGenoPolis hoping that it could be useful for other users too.
+I am still develloping it at INRA MetaGenoPolis hoping that it could be useful for other users too. more information with the enterotype tutorial : http://enterotype.embl.de/
