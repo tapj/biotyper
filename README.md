@@ -27,7 +27,7 @@ I am still develloping it at INRA MetaGenoPolis hoping that it could be useful f
 Install : you can install the BiotypeR package from GitHub using `devtools` package.
 
     require(devtools)
-    install_github("Biotyper","tapj")
+    install_github("BiotypeR","tapj")
     library(BiotypeR)
     example(BiotypeR)
     
