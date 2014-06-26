@@ -60,11 +60,12 @@ par(mfrow=c(2,2))
 
 #barplot
 barplot(table(biotyper.obj$biotypes), xlab="biotypes", ylab="Nb samples", col=as.numeric(levels(as.factor(as.numeric(biotyper.obj$biotypes))))+1) #+1 to avoid black
-
+box()
 
 
 #PCA
 plot(biotyper.obj$PCA$li[,xax], biotyper.obj$PCA$li[,yax], main="PCA", pch=16, col=as.numeric(biotyper.obj$biotypes)+1, xlab=paste("PC",xax), ylab=paste("PC",yax))
+box()
 
 if(!potatoes) {
 #DPCOA
