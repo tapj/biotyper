@@ -260,24 +260,33 @@ return(cluster)
 
 
 
-CH.index=function(dataframe, distance.jsd, kvector=1:20){
+CH.index=function(dataframe, distance.jsd=NULL, kvector=1:20, clusterSim=FALSE){
 
-require(clusterSim)
-kvector=unique(as.integer(kvector))
-nclusters=NULL
+if(clusterSim) {
+	require(clusterSim)
+	kvector=unique(as.integer(kvector))
+	nclusters=NULL
 
-	for (k in kvector) { 
-		if (k==1) {
-			nclusters[k]=0
-		}
+		for (k in kvector) { 
+			if (k==1) {
+				nclusters[k]=0
+			}
 		
-		else {
-			cluster=cluster.biotypes(distance.jsd, k)
-			index.G1(t(dataframe),cluster,  d = distance.jsd, centrotypes = "medoids") -> nclusters[k]
+			else {
+				if(distance.jsd==NULL) stop("a distance matrix is needed")
+				cluster=cluster.biotypes(distance.jsd, k)
+				index.G1(t(dataframe),cluster,  d = distance.jsd, centrotypes = "medoids") -> nclusters[k]
+			}
+
 		}
 
-	}
+	} else {
 	
+	nclusters=pamk(t(dataframe), criterion="ch", krange=kvector)$crit
+	
+	}
+
+
 
 return(nclusters)
 
