@@ -5,7 +5,7 @@ Type: Package
 
 Title: biotyper: an R package to biotype a community
 
-Version: 0.1
+Version: 0.1.1
 
 Depends: R (>= 1.8.0), ade4, fpc, clusterSim
 
