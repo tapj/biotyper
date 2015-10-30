@@ -35,7 +35,7 @@ dudi.pca(data.frame(t(obs[-1,])), scannf=F, nf=nf)-> obs.pca
 } else { dudi.pca(data.frame(t(obs)), scannf=F, nf=nf)-> obs.pca }
 
 bca(obs.pca, fac=as.factor(cluster), scannf=F, nf=nf)-> obs.bet
-dpcoa(as.data.frame(t(obs)), distance.jsd, scannf=F, nf=nf) -> obs.dpcoa
+dpcoa(noise.removal(obs, percent=0.000001), distance.jsd, scannf=F, nf=nf) -> obs.dpcoa
 }
 
 
