@@ -69,9 +69,9 @@ box()
 
 if(!potatoes) {
 #DPCOA
-plot(biotyper.obj$dPCoA$l1[1:2], type="n", xlab=paste("PC",xax), ylab=paste("PC",yax), main="dPCoA")
-s.class(biotyper.obj$dPCoA$l1, fac=factor(biotyper.obj$biotypes), add.plot=TRUE,clab=1, xax=xax, yax=yax)
-points(biotyper.obj$dPCoA$l1[,xax], biotyper.obj$dPCoA$l1[,yax], col=as.numeric(biotyper.obj$biotypes)+1, cex=1, pch=16)
+plot(biotyper.obj$dPCoA$dls[1:2], type="n", xlab=paste("PC",xax), ylab=paste("PC",yax), main="dPCoA")
+s.class(biotyper.obj$dPCoA$dls, fac=factor(biotyper.obj$biotypes), add.plot=TRUE,clab=1, xax=xax, yax=yax)
+points(biotyper.obj$dPCoA$dls[,xax], biotyper.obj$dPCoA$dls[,yax], col=as.numeric(biotyper.obj$biotypes)+1, cex=1, pch=16)
 
 #BET
 plot(biotyper.obj$BET$ls[,xax], biotyper.obj$BET$ls[,yax], type="n", xlab=paste("PC",xax), ylab=paste("PC",yax), main="between class")
