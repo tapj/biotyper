@@ -5,11 +5,11 @@ Type: Package
 
 Title: biotyper: an R package to biotype a community
 
-Version: 0.1.1
+Version: 0.1.2
 
 Depends: R (>= 1.8.0), ade4, fpc, clusterSim
 
-Date: 2011-07-12
+Date: 2015-10-30
 
 Author: Julien Tap, Daniel R. Mende
 
