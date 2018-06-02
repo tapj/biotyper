@@ -22,7 +22,7 @@ License: GPL 2
 LazyLoad: yes
 
 Short story : package developped for the enterotype paper (Arumugam et al., Nature, 2010) at EMBL.
-I am still develloping it at INRA MetaGenoPolis hoping that it could be useful for other users too. more information with the enterotype tutorial : http://enterotype.embl.de/
+I am still maintain it at Danone Nutricia Research hoping that it could be useful for other users too. more information with the enterotype tutorial : http://enterotype.embl.de/. A more recent method to cluster enterotypes using reference-based assignments can be found here http://enterotypes.org/
 
 Install : you can install the BiotypeR package from GitHub using `devtools` package.
 
