@@ -5,15 +5,17 @@ Type: Package
 
 Title: biotyper: an R package to biotype a community
 
-Version: 0.1.2
+Version: 0.1.3
 
 Depends: R (>= 1.8.0), ade4, fpc, clusterSim
 
-Date: 2015-10-30
+Date: 2020-08-27
 
 Author: Julien Tap, Daniel R. Mende
 
 Maintainer: Julien Tap <jtap@jouy.inra.fr>, Daniel R. Mende <mende@embl.de>
+
+Contributor: John Bouranis @bouranij
 
 Description: This package provide numerous functions for biotyping your community dataset based on clustering and classification techniques.
 
