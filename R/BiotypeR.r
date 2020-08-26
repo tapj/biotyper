@@ -11,7 +11,9 @@ biotyper.data.frame=function(obs, k=3 , distance.jsd=NULL, cluster=NULL, manalys
 
 require(ade4)
 require(fpc)
-
+require(cluster) #Require cluster package for use of PAM methods
+  
+  
 if(k==1) stop("k cannot be 1")
 
 if( is.null(distance.jsd)){
@@ -72,24 +74,29 @@ if(!potatoes) {
 plot(biotyper.obj$dPCoA$dls[1:2], type="n", xlab=paste("PC",xax), ylab=paste("PC",yax), main="dPCoA")
 s.class(biotyper.obj$dPCoA$dls, fac=factor(biotyper.obj$biotypes), add.plot=TRUE,clab=1, xax=xax, yax=yax)
 points(biotyper.obj$dPCoA$dls[,xax], biotyper.obj$dPCoA$dls[,yax], col=as.numeric(biotyper.obj$biotypes)+1, cex=1, pch=16)
-
-#BET
-plot(biotyper.obj$BET$ls[,xax], biotyper.obj$BET$ls[,yax], type="n", xlab=paste("PC",xax), ylab=paste("PC",yax), main="between class")
-s.class(biotyper.obj$BET$ls, fac=as.factor(biotyper.obj$biotypes), grid=F, xax=xax, yax=yax, add.plot=TRUE)
-points(biotyper.obj$BET$ls[,xax], biotyper.obj$BET$ls[,yax], col=as.numeric(biotyper.obj$biotypes)+1, cex=1, pch=16)
+if(dim(biotyper.obj$BET$ls)[2] >= 2){ #Fix issue where an error is thrown if only using 2 classes
+    #BET
+    plot(biotyper.obj$BET$ls[,xax], biotyper.obj$BET$ls[,yax], type="n", xlab=paste("PC",xax), ylab=paste("PC",yax), main="between class")
+    s.class(biotyper.obj$BET$ls, fac=as.factor(biotyper.obj$biotypes), grid=F, xax=xax, yax=yax, add.plot=TRUE)
+    points(biotyper.obj$BET$ls[,xax], biotyper.obj$BET$ls[,yax], col=as.numeric(biotyper.obj$biotypes)+1, cex=1, pch=16)
+}else{
+    warning('Cannot display between class graph, requires k > 2')
+  }
 } else {
-#DPCOA
+  #DPCOA
 plot(biotyper.obj$dPCoA$l1[1:2], type="n", xlab=paste("PC",xax), ylab=paste("PC",yax), main="dPCoA")
 s.potatoe(biotyper.obj$dPCoA$l1, fac=factor(biotyper.obj$biotypes), xax=xax, yax=yax)
 s.class(biotyper.obj$dPCoA$l1, fac=factor(biotyper.obj$biotypes), add.plot=TRUE,clab=1, xax=xax, yax=yax, cell=0, cstar=0, cpoint=0)
 points(biotyper.obj$dPCoA$l1[,xax], biotyper.obj$dPCoA$l1[,yax], cex=1, pch=16)
-
-#BET
-plot(biotyper.obj$BET$ls[,xax], biotyper.obj$BET$ls[,yax], type="n", xlab=paste("PC",xax), ylab=paste("PC",yax), main="between class")
-s.potatoe(biotyper.obj$BET$ls, fac=as.factor(biotyper.obj$biotypes), xax=xax, yax=yax)
-s.class(biotyper.obj$BET$ls, fac=as.factor(biotyper.obj$biotypes), grid=F, xax=xax, yax=yax, add.plot=TRUE, cell=0, cstar=0, cpoint=0)
-points(biotyper.obj$BET$ls[,xax], biotyper.obj$BET$ls[,yax], cex=1, pch=16)
-
+  if(dim(biotyper.obj$BET$ls)[2] >= 2){ #Fix an issue where an error is given if only using 2 classes
+    #BET
+    plot(biotyper.obj$BET$ls[,xax], biotyper.obj$BET$ls[,yax], type="n", xlab=paste("PC",xax), ylab=paste("PC",yax), main="between class")
+    s.potatoe(biotyper.obj$BET$ls, fac=as.factor(biotyper.obj$biotypes), xax=xax, yax=yax)
+    s.class(biotyper.obj$BET$ls, fac=as.factor(biotyper.obj$biotypes), grid=F, xax=xax, yax=yax, add.plot=TRUE, cell=0, cstar=0, cpoint=0)
+    points(biotyper.obj$BET$ls[,xax], biotyper.obj$BET$ls[,yax], cex=1, pch=16)
+  }else{
+    warning('Cannot display between class graph, requires k > 2')
+  }
 }
 
 
