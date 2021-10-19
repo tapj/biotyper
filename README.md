@@ -31,7 +31,8 @@ Install : you can install the BiotypeR package from GitHub using `devtools` pack
     require(devtools)
     install_github("tapj/BiotypeR")
     library(BiotypeR)
-    example(BiotypeR)
+    data(Titanium16S)
+    Titanium16S.biotypes=biotyper.data.frame(Titanium16S, k=3, manalysis=TRUE)
     
   
   
